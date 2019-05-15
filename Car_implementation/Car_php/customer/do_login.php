@@ -14,11 +14,11 @@ $password=$_POST['password'];///'13uh2467';//
 $result =$customer->login($username, $password);
   if($result) {
 
-    		header("Location: ../home.php");
+    		header("Location: ../../");
     //header("Car_implementation/Car_Frames/Car_frames.html);
   }
   else {
-      header("Location: ../home.php?Message=worng username or password");
+      header("Location: ../../?Message=worng username or password");
   }
 }
  ?>
