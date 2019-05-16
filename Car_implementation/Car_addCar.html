@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add new car</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css" />
+	<style>
+	.form{
+	background-color: #2f3640;
+	align: center;
+	margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+	}
+	</style>
+</head>
+
+<body class="index-body" >
+
+    <div class="container">
+	
+        <form method="POST" action="Car_home.html" id="form" class="form" autocomplete="off"  >
+            <span class="form-title">Enter All Car Information</span>
+            
+            <div class="wrap-input">
+                <span class="span-user-name title">Car Type</span>
+                <input type="text" placeholder="Please enter the car type" class="txt-input" required maxlength="20">
+            </div>
+            <div class="wrap-input">
+                <span class="span-email title">Car Model</span>
+                <input type="text" placeholder="Please enter the car model" class="txt-input"  required maxlength="30"/>
+            </div>
+			<div class="wrap-input">
+                <span class="span-Address-name title">Car Color</span>
+                <input type="text" placeholder="Please enter the car color" class="txt-input" required maxlength="100">
+            </div>
+			<div class="wrap-input">
+                <span class="span-Address-name title">Car Price</span>
+                <input type="number" placeholder="Please enter the car price" class="txt-input" title="Ten digits code" required maxlength="1000">
+            </div>
+			<div class="wrap-input">
+                <span class="span-Address-name title">Car Description</span>
+                <input type="text" placeholder="Please enter the car description" class="txt-input" title="Ten digits code" required maxlength="1000">
+            </div>
+
+			<div id="error-nwl"></div>
+			 
+			
+
+                <input type="submit" value="Add Car" id="login" class="login txt-input btn btn--dark  btn--rounded btn--transparent btn--move">
+
+        </form>
+		
+            
+        </div>
+    </div>
+</body>
+
+</html>
