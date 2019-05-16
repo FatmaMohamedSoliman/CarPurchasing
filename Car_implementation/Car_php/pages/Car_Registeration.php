@@ -20,7 +20,8 @@ body {
             </div>
             <div class="wrap-input">
                 <span class="span-email title">email</span>
-                <input type="text" name="email" placeholder="email" id="email" class="txt-input"  required maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+                <input type="email" name="email" placeholder="email" id="email" class="txt-input"
+                required maxlength="30"/>
             </div>
 			<div class="wrap-input">
                 <span class="span-Address-name title">Address</span>
