@@ -11,7 +11,7 @@ class car{
 	*/
 	function get_all($where_cl = "",$order_cl="")
 	{
-		$sql_car_data_query = "SELECT `id`, `status`, `description`, `model`, `color`, `price`,`image` FROM `car` ";
+		$sql_car_data_query = "SELECT `id`, `status`, `description`, `model`, `color`, `price`,`image`,`reservationdate` FROM `car` ";
 
 		if($where_cl != ""){
 			$sql_car_data_query .= " where $where_cl ";
@@ -19,8 +19,7 @@ class car{
 
 		if($order_cl != ""){
 			$sql_car_data_query .= " order by $order_cl ";
-		}
-
+		} 
 		$allucars = $this->d->query($sql_car_data_query);
 		return $allucars;
 	}
@@ -39,6 +38,15 @@ class car{
 		`color`='$color',
 		`price`='$price',
 		`image` = '$img'
+		WHERE id= $id";
+		$sql_update_result=$this->d->execute($sql);
+		return $sql_update_result;
+	}
+	function reserve($customer, $id){
+		$sql = "UPDATE `car` SET
+		`status`='reserved',
+		`reservedto`=$customer,
+		`reservationdate`='".date('Y-m-d H:i:s')."'
 		WHERE id= $id";
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;

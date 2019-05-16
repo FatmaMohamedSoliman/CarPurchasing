@@ -1,7 +1,8 @@
 <?php
 require_once  __DIR__	.'\..\database.php';
+require_once  __DIR__	.'\..\user.php';
 
-class customer{
+class customer extends user{
 	private $d = null;
 	function __construct(){
 		$this->d = new DataBase();
@@ -9,8 +10,8 @@ class customer{
 
 	function login($username, $password)
 	{
-		$customer_login = $this->d->query("select `id`, `username`, `phone`, `email`, `address`
-		FROM `customer`
+		$customer_login = $this->d->query("select `id`, `username`, `phone`, `email`, `address`, `user_type`
+		FROM `users`
 		where `username` = '$username' AND password ='$password' ");
 		if(count($customer_login)== 1){
 			  $_SESSION['user_data'] = $customer_login[0];
@@ -30,7 +31,7 @@ class customer{
 	*/
 	function get_all($where_cl = "",$order_cl="")
 	{
-		$sql_customer_data_query = "select `id`, `username`, `phone`, `email`, `address`  FROM `customer`";
+		$sql_customer_data_query = "select `id`, `username`, `phone`, `email`, `address`  FROM `users`";
 
 		if($where_cl != ""){
 			$sql_customer_data_query .= " where $where_cl ";
@@ -45,19 +46,25 @@ class customer{
 	}
 	function registration( $username, $password,$phone, $email, $address )
 	{
-		$sql = "INSERT INTO customer(`username`,`password`, `phone`, `email`, `address`)
+		$sql = "INSERT INTO users(`username`,`password`, `phone`, `email`, `address`)
 							VALUES ('$username', '$password','$phone', '$email' , '$address')";
 		$sql_insert_result=$this->d->execute($sql);
 		return $sql_insert_result;
 	}
 	function edit_account($username, $password,$phone, $email, $address, $id){
-		$sql = "UPDATE `customer` SET
+		$sql = "UPDATE `users` SET
 		`username`='$username',
 		`phone`='$phone',
 		`email`='$email',
 		`address`='$address',
 		`password`='$password'
 
+		WHERE id= $id";
+		$sql_update_result=$this->d->execute($sql);
+		return $sql_update_result;
+	}
+	function delete_user( $id){
+		$sql = "delete from `users` 
 		WHERE id= $id";
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
