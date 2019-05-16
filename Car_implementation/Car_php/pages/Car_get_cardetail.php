@@ -1,5 +1,9 @@
 <?php
 require_once  __DIR__.'/../car/model.car.php';
+if(!isset($_SESSION['user_data'])){
+	  echo "<center>you have to login into your account to access this page </center>";
+    return;
+}
 $car = new car();
 if(isset($_POST['id'])){
   $customer =$_SESSION['user_data']['id'];
@@ -26,7 +30,7 @@ if(isset($_GET['id'])){
       echo $carObj['reservationdate'];
       ?> <br>
       reservation expire: <?php
-      echo date('Y-m-d',strtotime($carObj['reservationdate']. ' + 1 days')) ; 
+      echo date('Y-m-d',strtotime($carObj['reservationdate']. ' + 1 days')) ;
       ?> <br>
       <?php } ?>
 		model: <?php echo $carObj['model'] ; ?> <br>

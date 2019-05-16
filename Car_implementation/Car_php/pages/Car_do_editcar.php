@@ -43,13 +43,15 @@ if(isset($_GET['id'])){
 					</select>
 					<br>
 		color: <select name='color' value ="<?php echo $carObj['color'] ; ?> " >
-							<option> red</option>
-							<option> blue </option>
-							<option> black </option>
+      <option >Red</option>
+      <option >Gray</option>
+      <option >Blue</option>
+      <option >Black</option>
+      <option >Green</option>
 					</select><br>
 		price: <input name='price' value ="<?php echo $carObj['price'] ; ?> " /><br>
 		description <input type='text' name='description' value ="<?php echo $carObj['description'] ; ?> " /><br>
-		image <input type='url' name='img' value ="<?php echo $carObj['image'] ; ?> " /><br>
+		image <input type='text' name='img' value ="<?php echo $carObj['image'] ; ?> " /><br>
 		<button type='submit'>save</button>
    </form>
    </body>

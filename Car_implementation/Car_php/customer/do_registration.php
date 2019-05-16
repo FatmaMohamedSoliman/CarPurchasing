@@ -13,5 +13,11 @@ $customer = new customer();
   $email=$_POST['email'];;
   $address=$_POST['address'];;
 $result= $customer->registration( $username,$password, $phone, $email, $address );
-  var_Dump($result);
+  //var_Dump($result);
+  if($result) {
+        header("Location: ../../");
+  }
+  else {
+      header("Location: ../../?Message=some thing went wrong");
+  }
 ?>

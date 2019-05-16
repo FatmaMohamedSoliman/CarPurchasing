@@ -19,8 +19,7 @@ class car{
 
 		if($order_cl != ""){
 			$sql_car_data_query .= " order by $order_cl ";
-		}
-
+		} 
 		$allucars = $this->d->query($sql_car_data_query);
 		return $allucars;
 	}

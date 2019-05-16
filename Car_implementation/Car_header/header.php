@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
-   <base target="main"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="Car_header/Car_header.css">
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-   <title>Car_Login</title>
 </head>
 
 <body>
@@ -12,7 +14,7 @@
 require_once "header_logo.php";
 ?>
 </div>
-<div style="width:48%; display:inline-block">
+<div style="display:inline-block">
 <?php
 require_once "header_login.php";
 ?>

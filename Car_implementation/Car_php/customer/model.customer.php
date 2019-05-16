@@ -63,6 +63,12 @@ class customer extends user{
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
 	}
+	function delete_user( $id){
+		$sql = "delete from `users` 
+		WHERE id= $id";
+		$sql_update_result=$this->d->execute($sql);
+		return $sql_update_result;
+	}
 
 	function reserve(){
 

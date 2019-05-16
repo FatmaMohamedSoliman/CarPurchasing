@@ -25,9 +25,11 @@ if(isset($_POST['model'])){
 					</select>
 					<br>
 		color: <select type='number' name='color' >
-							<option> red</option>
-							<option> blue </option>
-							<option> black </option>
+			<option >Red</option>
+			<option >Gray</option>
+			<option >Blue</option>
+			<option >Black</option>
+			<option >Green</option>
 					</select><br>
 		price: <input type='number' name='price' /><br>
 		description <input type='text' name='description' /><br>

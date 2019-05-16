@@ -1,8 +1,5 @@
 <?php
 require_once  __DIR__.'/../car/model.car.php';
-if(!isset($_SESSION['user_data'])){
-	   header("Location: .");
-}
 ?>
 
 <table style='width:70%'>
@@ -22,14 +19,7 @@ if(!isset($_SESSION['user_data'])){
  <?php
 
  $car = new car();
- $cond = "";
- //admin case
-if(isset($_SESSION['user_data']) && isset($_SESSION['user_data']['user_type'])){
- $cond= "status='reserved'";
-}else{
-  $cond= "status='reserved' and reservedto = ".$_SESSION['user_data']['id'];
-}
- $carlist = $car->get_all($cond,"");
+ $carlist = $car->get_all("","");
 
  for($i = 0 ; $i < count($carlist); $i++)
  {
