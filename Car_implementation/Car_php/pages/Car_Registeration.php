@@ -2,10 +2,23 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css" />
+
+
+
+
+
+
 <style>
 body {
   height: 60rem;
 }
+.form{
+	background-color: #2f3640;
+	align: center;
+	margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+	}
 </style>
 
 
@@ -47,12 +60,7 @@ body {
                 <input type="submit" value="Regester" id="login" class="login txt-input btn btn--dark  btn--rounded btn--transparent btn--move">
 
         </form>
-        <div class="headline">Registeration</div>
-        <div class="instructions">
 
-        <div class="instructions-item">Please enter valid personal informations.</div>
-
-        </div>
     </div>
     <script src="js/main.js"></script>
 	<script>
