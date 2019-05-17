@@ -28,15 +28,16 @@ margin-left: 25%;
 </style>
 <form method="POST" id="form" class="form" autocomplete="off"  >
 					<span class="form-title">Enter All Car Information</span>
-
+<<input type="hidden" name='status' value='free'/>
 					<div class="wrap-input">
 							<span class="span-user-name title">Car Type</span>
 
-							<select type='number' name='model' required class="form-input">
+							<select type='number' name='model' required style="width: 90%;">
 									<option> VM </option>
 									<option> BMW </option>
-										<option> BMW </option>
+										<option> VERNNA </option>
 										<option> FIAT </option>
+										<option> KIA </option>
 							</select>
 					</div>
 					<div class="wrap-input">
@@ -46,7 +47,7 @@ margin-left: 25%;
 		<div class="wrap-input">
 							<span class="span-Address-name title">Car Color</span>
 
-							<select type='number' name='color' required >
+							<select type='number' name='color' required  style="width: 90%;">
 								<option >Red</option>
 								<option >Gray</option>
 								<option >Blue</option>

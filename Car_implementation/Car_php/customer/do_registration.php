@@ -1,7 +1,7 @@
 <?php
 
 require_once  'model.customer.php';
-$customer = new customer();
+$customer = new user();
 //exAmple of registrtion
 
 

@@ -11,7 +11,7 @@ class car{
 	*/
 	function get_all($where_cl = "",$order_cl="")
 	{
-		$sql_car_data_query = "SELECT `id`, `status`, `description`, `model`, `color`, `price`,`image`,`reservationdate` FROM `car` ";
+		$sql_car_data_query = "SELECT `id`, `status`, `description`, `model`, `color`, `price`,`image`,`reservationdate` ,`modelyear` FROM `car` ";
 
 		if($where_cl != ""){
 			$sql_car_data_query .= " where $where_cl ";
@@ -30,18 +30,20 @@ class car{
 		$sql_insert_result=$this->d->execute($sql);
 		return $sql_insert_result;
 	}
-	function editcar($status, $description,$model, $color, $price,$img, $id){
+	function editcar($status, $description,$model, $color, $price,$img, $id,$modelyear){
 		$sql = "UPDATE `car` SET
 		`status`='$status',
 		`description`='$description',
 		`model`='$model',
 		`color`='$color',
 		`price`='$price',
-		`image` = '$img'
+		`image` = '$img',
+	  `modelyear`=	$modelyear
 		WHERE id= $id";
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
 	}
+
 	function reserve($customer, $id){
 		$sql = "UPDATE `car` SET
 		`status`='reserved',
@@ -51,6 +53,15 @@ class car{
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
 	}
-
+	function freeExpiredReservtion(){
+		$sql = "UPDATE `car` SET
+		`status`='free',
+			`reservationdate`=NULL,
+				`reservedto`=NULL
+		-- //date(YYYY-MM-DD,[timestamp]);
+  	WHERE `status`= 'reserved' and  DATE_ADD(reservationdate, INTERVAL 1 DAY) <=now();";
+		$sql_update_result=$this->d->execute($sql);
+		return $sql_update_result;
+	}
 }
 ?>

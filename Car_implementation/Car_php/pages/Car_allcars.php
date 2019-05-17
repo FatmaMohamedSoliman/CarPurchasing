@@ -1,8 +1,15 @@
 <?php
+
 require_once  __DIR__.'/../car/model.car.php';
+ $car = new car();
+if(isset($_POST['free'])){
+   $car->freeExpiredReservtion();
+}
 ?>
 
-<table style='width:70%'>
+
+
+<table width=100% class="table table-bordered">
  <thead>
  <tr>
    <th>model</th>
@@ -11,21 +18,29 @@ require_once  __DIR__.'/../car/model.car.php';
    <th>status</th>
     <th>price</th>
     <?php if(isset($_SESSION['user_data'])){ ?>
-        <th>operation</th>
+        <th>
+          <?php
+        if(isset($_SESSION['user_data']['user_type'])){ ?>
+        <form method='post' >
+          <input type="hidden" name='free' value ="1" />
+          <button class="btn btn-danger" type='submit' style=" color: white;">Free Expired Reservtion</button>
+        </form>
+        <?php }
+          ?>
+        </th>
     <?php } ?>
  <tr>
  <thead>
  <tbody>
- <?php
 
- $car = new car();
+ <?php
  $carlist = $car->get_all("","");
 
  for($i = 0 ; $i < count($carlist); $i++)
  {
    echo "<tr>";
    echo "<td>".$carlist[$i]['model']."</td>";
-   echo "<td><img width=70px hight=70px src='".$carlist[$i]['image']."'></td>";
+   echo "<td><img width=170px hight=170px src='".$carlist[$i]['image']."'></td>";
    echo "<td>".$carlist[$i]['color']."</td>";
    echo "<td>".$carlist[$i]['status']."</td>";
    echo "<td>".$carlist[$i]['price']."</td>";

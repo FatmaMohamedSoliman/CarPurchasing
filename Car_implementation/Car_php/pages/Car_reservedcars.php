@@ -108,7 +108,7 @@ if(isset($_SESSION['user_data']) && isset($_SESSION['user_data']['user_type'])){
                          <div class="feature-content d-flex align-items-center justify-content-between">
                              <div class="feature-title">
                                  <h5><?php echo $carlist[$i]['model']?></h5>
-                                 <p><?php echo $carlist[$i]['model']?></p>
+                                 <p><?php echo $carlist[$i]['modelyear']?></p>
  								                 <p>Avaliable Color : <?php echo $carlist[$i]['color']?></p>
  								                 <p>Price : <?php echo $carlist[$i]['price'] ?> LE</p>
  								                 <a href="?content=Car_get_cardetail&id=<?php echo $carlist[$i]['id'] ?>"><p bgcolor="#696969"><u>See More</u><p></a>

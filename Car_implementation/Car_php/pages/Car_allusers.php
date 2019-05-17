@@ -1,12 +1,14 @@
 <?php
 require_once  __DIR__.'/../customer/model.customer.php';
-$customer = new customer();
+$customer = new user();
 $customerlist = $customer->get_all("","");
  ?>
     <link href="style.css" rel="stylesheet">
 
 
 
+
+  
     <section class="dorne-listing-destinations-area section-padding-100-50">
         <div class="container">
                       <div class="row">

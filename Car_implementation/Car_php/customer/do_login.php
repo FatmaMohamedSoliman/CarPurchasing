@@ -3,7 +3,7 @@
 //login example
 require_once  'model.customer.php';
 if(isset($_POST['username'])){
-$customer = new customer();
+$customer = new user();
 
 
 

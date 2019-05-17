@@ -1,8 +1,8 @@
 <?php
 require_once  __DIR__	.'\..\database.php';
-require_once  __DIR__	.'\..\user.php';
+//require_once  __DIR__	.'\..\user.php';
 
-class customer extends user{
+class user {
 	private $d = null;
 	function __construct(){
 		$this->d = new DataBase();
@@ -51,27 +51,20 @@ class customer extends user{
 		$sql_insert_result=$this->d->execute($sql);
 		return $sql_insert_result;
 	}
-	function edit_account($username, $password,$phone, $email, $address, $id){
+	function edit_account($id,$email, $address){
 		$sql = "UPDATE `users` SET
-		`username`='$username',
-		`phone`='$phone',
 		`email`='$email',
-		`address`='$address',
-		`password`='$password'
-
+		`address`='$address'
 		WHERE id= $id";
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
 	}
 	function delete_user( $id){
-		$sql = "delete from `users` 
+		$sql = "delete from `users`
 		WHERE id= $id";
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
 	}
 
-	function reserve(){
 
-
-	}
 }

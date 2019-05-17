@@ -25,7 +25,7 @@
 			{
 				echo "<tr>";
 				echo "<td>".$carlist[$i]['model']."</td>";
-				echo "<td>".$carlist[$i]['model']."</td>";
+				echo "<td>".$carlist[$i]['modelyear']."</td>";
 				echo "<td>".$carlist[$i]['color']."</td>";
 				echo "<td>".$carlist[$i]['status']."</td>";
 				echo "<td>".$carlist[$i]['price']."</td>";

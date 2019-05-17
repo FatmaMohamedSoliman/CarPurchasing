@@ -1,14 +1,12 @@
 <?php
 require_once  'model.customer.php';
-$customer = new customer();
+$customer = new user();
 //example of update function
-  $username ="jaja22";
- $phone=1245887;
- $password='13uh2467';
+  $email=$_POST[email];
+  $address=$_POST[address];
 
-  $email="aed@mail.com";
-  $address="hram";
-  $id=4;
-$result= $customer->edit_account( $username,$password, $phone, $email, $address, $id );
-  var_Dump($result);
+
+
+$result= $customer->edit_account($id, $email, $address );
+//  var_Dump($result);
 ?>
