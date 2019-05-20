@@ -42,16 +42,22 @@ body {
             </div>
 			<div class="wrap-input">
                 <span class="span-Address-name title">Phone</span>
-                <input type="text" name="phone" placeholder="Phone" id="fieldSelectorId" class="txt-input" pattern="[0-9]{10}"  title="Ten digits code" required maxlength="11">
+                <input type="number" name="phone" placeholder="Phone" id="fieldSelectorId" class="txt-input" pattern="[0-9]{10}"  title="Ten digits code" required maxlength="11">
             </div>
             <div class="wrap-input">
                 <span class="span-password-name title">password</span>
-                <input type="password"  name="password" placeholder="password" id="pass1" class="txt-input" required maxlength="14">
+                <input type="password"  name="password" placeholder="password"
+                 id="pass1" class="txt-input" required maxlength="14"
+                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least
+                  one number and one uppercase and lowercase letter, and at least 8 or more characters"required>
             </div>
 
 			<div class="wrap-input">
                 <span class="span-Confirm password-name title">Confirm password</span>
-                <input type="password"  name="Confirm password" placeholder="Confirm password" id="pass2" class="txt-input" required maxlength="14" onkeyup="checkPass(); return false;">
+                <input type="password"  name="Confirm password" placeholder="Confirm password" id="pass2"
+                class="txt-input" required maxlength="14" onkeyup="checkPass(); return false;"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least
+                 one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             </div>
 			<div id="error-nwl"></div>
 

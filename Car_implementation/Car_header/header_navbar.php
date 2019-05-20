@@ -35,12 +35,15 @@ text-decoration: none;
                  <?php if(!isset($_SESSION['user_data']['user_type'])){ ?>
 
                  <li><a href="?content=Car_reservedcars">Reserved Cars</a></li>
+                 <li><a href='?content=Car_do_addcar'>Sell Car</a></li>
                <?php } else { ?>
                  <li><a href="?content=Car_reservedcars">All reservation</a></li>
                   <li><a href="?content=Car_allcars">All cars</a></li>
                   <li><a href="?content=Car_allusers">All users</a></li>
                  <li><a href='?content=Car_do_addcar'>Add Car</a></li>
                   <li><a href='?content=Car_Registeration'>Add user</a></li>
+
+                      <li><a href='?content=Car_deletecar'></a></li>
                  <?php }?>
         <?php }?>
   </ul>

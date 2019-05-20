@@ -83,7 +83,7 @@ require_once  __DIR__.'/../car/model.car.php';
 <script>
 function search()
 {
-  window.location='?color='+$('#color').val()+'&order=price&sort='+$('#order').val()+'&model='+$('#model').val();
+  window.location='?color='+$('#color').val()+'&order=price&sort='+$('#order').val();
    // +'?model='+$('#model').val();
 }
  </script>
@@ -97,7 +97,6 @@ function search()
 
              <label>Select color</label>
              <select  onchange="search()"  width="100%" height="45px" id=color >
-               <option  >All</option>
                <option <?php echo (isset($_GET['color']) && $_GET['color']=='Red')? ' selected ': ""   ?> >Red</option>
                <option <?php echo (isset($_GET['color']) && $_GET['color']=='Gray')? ' selected ': ""   ?> >Gray</option>
                <option <?php echo (isset($_GET['color']) && $_GET['color']=='Blue')? ' selected ': ""   ?> >Blue</option>
@@ -109,17 +108,8 @@ function search()
              <select id=order onchange="search()" >
                <option value="desc" <?php echo (isset($_GET['sort']) && $_GET['sort']=='desc')? ' selected ': ""   ?> >High To Low</option>
                <option value = "asc" <?php echo (isset($_GET['sort']) && $_GET['sort']=='asc')? ' selected ': ""   ?>>Low To High</option>
-</select>
-               <span style="word-spacing: 30px;"></span>
-               <label>Select Model</label>
-             <select id=model onchange="search()">
-               <option  >All</option>
-             <option <?php echo (isset($_GET['model']) && $_GET['model']=='BMW')? ' selected ': ""   ?> >BMW</option>
-             <option <?php echo (isset($_GET['model']) && $_GET['model']=='FIAT')? ' selected ': ""   ?> >FIAT</option>
-             <option <?php echo (isset($_GET['model']) && $_GET['model']=='KIA')? ' selected ': ""   ?> >KIA</option>
-             <option  <?php echo (isset($_GET['model']) && $_GET['model']=='VERNNA')? ' selected ': ""   ?>>VERNNA</option>
-             <option <?php echo (isset($_GET['model']) && $_GET['model']=='MER')? ' selected ': ""   ?> >MER</option>
-           </select>
+
+             </select>
 
              <!-- <input class="searchbox" type="text" Placeholder="Search........" name="search" align="right" maxlength="35"> -->
 
@@ -134,18 +124,18 @@ function search()
                       <div class="row">
 <?php
 $car = new car();
-$cond = " 1 = 1 ";
+$cond = "";
 $order = "";
 if(isset($_GET['order'])){
   $order = $_GET['order']. ' '. $_GET['sort'];
-}
-if(isset($_GET['color']) && $_GET['color'] !='All'){
-  $cond .= " and color='".$_GET['color']."'";
-}
-if(isset($_GET['model']) && $_GET['model'] !='All'){
-  $cond .= " and model='".$_GET['model']."'";
+  $cond = "color='".$_GET['color']."'";
 }
 $carlist = $car->get_all($cond,$order);
+
+
+
+
+
 for($i = 0 ; $i < count($carlist); $i++)
 {
   ?>
@@ -157,9 +147,9 @@ for($i = 0 ; $i < count($carlist); $i++)
                             <div class="feature-title">
                                 <h5><?php echo $carlist[$i]['model']?></h5>
                                 <p><?php echo $carlist[$i]['modelyear']?></p>
-								                 <!-- <p>Avaliable Color : <?php echo $carlist[$i]['color']?></p>
-								                 <p>Price : <?php echo $carlist[$i]['price'] ?> LE</p> -->
-								                 <a href="?content=Car_get_cardetail&id=<?php echo $carlist[$i]['id'] ?>"><p bgcolor="#696969"><u>See More</u><p></a>
+								                 <p>Avaliable Color : <?php echo $carlist[$i]['color']?></p>
+								                 <p>Price : <?php echo $carlist[$i]['price'] ?> LE</p>
+								                 <a href="Car_php/car/do_deletecar.php?id=<?php echo $carlist[$i]['id'] ?>"><p bgcolor="#696969"><u>DeleteCar</u><p></a>
 
                             </div>
 

@@ -28,6 +28,7 @@ color: white;
 require_once  __DIR__.'/../car/model.car.php';
 if(!isset($_SESSION['user_data'])){
 	  echo "<center>you have to login into your account to access this page </center>";
+	  header("Location: ?content=Car_Registeration");
     return;
 }
 $car = new car();
@@ -45,7 +46,7 @@ if(isset($_POST['id'])){
 //to handle the view default vlaue for editing operation
 $carObj = null;
 if(isset($_GET['id'])){
-  $carlist = $car->get_all("id = ".$_GET['id'],"");
+  $carlist = $car->get_all("car.id = ".$_GET['id'],"");
   $carObj = $carlist[0];
 }
 ?>

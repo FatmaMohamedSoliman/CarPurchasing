@@ -11,8 +11,9 @@ class car{
 	*/
 	function get_all($where_cl = "",$order_cl="")
 	{
-		$sql_car_data_query = "SELECT `id`, `status`, `description`, `model`, `color`, `price`,`image`,`reservationdate` ,`modelyear` FROM `car` ";
-
+		$sql_car_data_query = "SELECT car.`id`, `status`, `description`, `model`, `color`, `price`,`image`,`reservationdate` ,`modelyear`
+		FROM `car`
+    left outer join users on car.reservedto =users.id" ;
 		if($where_cl != ""){
 			$sql_car_data_query .= " where $where_cl ";
 		}
@@ -53,6 +54,13 @@ class car{
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
 	}
+	function changestatus($status, $id){
+		$sql = "UPDATE `car` SET
+		`status`='$status'
+		WHERE id= $id";
+		$sql_update_result=$this->d->execute($sql);
+		return $sql_update_result;
+	}
 	function freeExpiredReservtion(){
 		$sql = "UPDATE `car` SET
 		`status`='free',
@@ -63,5 +71,12 @@ class car{
 		$sql_update_result=$this->d->execute($sql);
 		return $sql_update_result;
 	}
+	function delete_car( $id){
+		$sql = "delete from `car`
+		WHERE id= $id";
+		$sql_update_result=$this->d->execute($sql);
+		return $sql_update_result;
+	}
+
 }
 ?>

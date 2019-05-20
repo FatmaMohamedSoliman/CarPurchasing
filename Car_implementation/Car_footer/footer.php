@@ -1,21 +1,4 @@
 </div>
-<footer class="dorne-footer-area">
-
-        <div class="row">
-            <div class="col-12 d-md-flex align-items-center justify-content-between">
-                <div class="footer-text">
-
-                </div>
-                <div class="footer-social-btns">
-                    <a href="https://www.google.com"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
-                    <a href="https://www.google.com"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                    <a href="https://www.google.com"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="https://www.google.com"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
-                    <a href="https://www.google.com"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
-                </div>
-            </div>
-    </div>
-</footer>
 
 
 <!-- jQuery-2.2.4 js -->
