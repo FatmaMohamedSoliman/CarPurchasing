@@ -96,12 +96,11 @@ if(!isset($_SESSION['user_data'])){
 if(isset($_SESSION['user_data']) && isset($_SESSION['user_data']['user_type'])){
  $cond= "status='reserved'";
 }else{
-  $cond= "status='reserved' and reservedto = ".$_SESSION['user_data']['id'];
+  $cond= " addedby=".$_SESSION['user_data']['id']." or reservedto = ".$_SESSION['user_data']['id'];
 }
  $carlist = $car->get_all($cond,"");
- $userlist = $reserver->get_all();
 
- for($i = 0 ; $i < count($carlist) && $i < count($userlist) ; $i++)
+ for($i = 0 ; $i < count($carlist) ; $i++)
  {
    ?>
                  <div class="col-12 col-sm-6 col-lg-4">
@@ -114,7 +113,7 @@ if(isset($_SESSION['user_data']) && isset($_SESSION['user_data']['user_type'])){
                                  <p><?php echo $carlist[$i]['modelyear']?></p>
  								                 <p>Avaliable Color : <?php echo $carlist[$i]['color']?></p>
  								                 <p>Price : <?php echo $carlist[$i]['price'] ?> LE</p>
-																 <p>Resrved To : <?php echo $userlist[$i]['username']?></p>
+																 <p>Resrved To : <?php echo $carlist[$i]['username']?></p>
  								                 <a href="?content=Car_get_cardetail&id=<?php echo $carlist[$i]['id'] ?>"><p bgcolor="#696969"><u>See More</u><p></a>
 <?php
 // if(isset($_SESSION['user_data']))

@@ -11,7 +11,7 @@ class car{
 	*/
 	function get_all($where_cl = "",$order_cl="")
 	{
-		$sql_car_data_query = "SELECT car.`id`, `status`, `description`, `model`, `color`, `price`,`image`,`reservationdate` ,`modelyear`
+		$sql_car_data_query = "SELECT car.`id`,users.username, `status`, `description`, `model`, `color`, `price`,`image`,`reservationdate` ,`modelyear`
 		FROM `car`
     left outer join users on car.reservedto =users.id" ;
 		if($where_cl != ""){
@@ -21,13 +21,18 @@ class car{
 		if($order_cl != ""){
 			$sql_car_data_query .= " order by $order_cl ";
 		}
+		// echo $sql_car_data_query;
 		$allucars = $this->d->query($sql_car_data_query);
 		return $allucars;
 	}
 	function addcar( $status, $description , $model, $color, $price ,$img,$modelyear)
 	{
-		$sql = "INSERT INTO car(`status`, `description`, `model`, `color`, `price`,`image`,`modelyear`)
-				VALUES ('$status', '$description','$model', '$color' , '$price','$img','$modelyear')";
+
+
+
+
+		$sql = "INSERT INTO car(`status`, `description`, `model`, `color`, `price`,`image`,`modelyear`,`addedby`)
+	VALUES ('$status', '$description','$model', '$color' , '$price','$img','$modelyear',".$_SESSION['user_data']['id'].")";
 		$sql_insert_result=$this->d->execute($sql);
 		return $sql_insert_result;
 	}
