@@ -96,7 +96,8 @@ if(!isset($_SESSION['user_data'])){
 if(isset($_SESSION['user_data']) && isset($_SESSION['user_data']['user_type'])){
  $cond= "status='reserved'";
 }else{
-  $cond= " addedby=".$_SESSION['user_data']['id']." or reservedto = ".$_SESSION['user_data']['id'];
+  $cond = " addedby=".$_SESSION['user_data']['id'];
+	$cond .= " or (reservedto = ".$_SESSION['user_data']['id']." and status='reserved' ) ";
 }
  $carlist = $car->get_all($cond,"");
 
