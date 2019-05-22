@@ -146,6 +146,7 @@ if(isset($_GET['model']) && $_GET['model'] !='All'){
   $cond .= " and model='".$_GET['model']."'";
 }
 $carlist = $car->get_all($cond,$order);
+if(count($carlist) > 0){
 for($i = 0 ; $i < count($carlist); $i++)
 {
   ?>
@@ -166,7 +167,10 @@ for($i = 0 ; $i < count($carlist); $i++)
                         </div>
                     </div>
                 </div>
-<?php } ?>
+<?php } }
+else
+echo "Sorry, we don't have this car right now, please check it later";
+?>
 
             </div>
         </div>
