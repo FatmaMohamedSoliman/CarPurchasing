@@ -6,12 +6,12 @@ require_once  __DIR__.'/../Car_php/database.php';
     {
 ?>
 <form class="form-inline" action="/action_page.php">
-  <?php   echo "Welcome ".  $_SESSION['user_data']['username'].","; ?>
+  <?php   echo "Welcome ".  $_SESSION['user_data']['username'].", "; ?>
    <button onclick="window.location='?content=Car_userprofile'" type="button" class="btn btn-default" name="profile-btn" style="margin-right:5px; background-color:#2f3640;color: white;">My Profile</button>
    <button onclick="window.location='Car_php/customer/do_logout.php'" type="button" class="btn btn-default" name="logout-btn" style=" background-color:#2f3640;color: white;">Logout</button>
 </form>
 <?php
-	//header("Location: ../home.php");
+	//header("Location: ../home.php");11111111111111111111111111111111
     }
     else {
 

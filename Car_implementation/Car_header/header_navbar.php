@@ -36,6 +36,7 @@ text-decoration: none;
 
                  <li><a href="?content=Car_reservedcars">Reserved Cars</a></li>
                  <li><a href='?content=Car_do_addcar'>Sell Car</a></li>
+                  <li><a href='?content=car_addedcars'>Added Car</a></li>
                <?php } else { ?>
                  <li><a href="?content=Car_reservedcars">All reservation</a></li>
                   <li><a href="?content=Car_allcars">All cars</a></li>

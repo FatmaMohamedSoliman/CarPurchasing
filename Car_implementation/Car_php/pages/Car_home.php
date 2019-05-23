@@ -3,9 +3,16 @@ require_once  __DIR__.'/../car/model.car.php';
 ?>
 
     <!-- Core Stylesheet -->
+
+
+
+
+
     <link href="style.css" rel="stylesheet">
 
     <!-- Responsive CSS -->
+
+
     <link href="css/responsive/responsive.css" rel="stylesheet">
 
 <style>
@@ -169,7 +176,7 @@ for($i = 0 ; $i < count($carlist); $i++)
                 </div>
 <?php } }
 else
-echo "Sorry, we don't have this car right now, please check it later";
+echo "   Sorry, we don't have this car right now, please check it later";
 ?>
 
             </div>
